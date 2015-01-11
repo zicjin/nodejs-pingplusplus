@@ -70,7 +70,6 @@ console.log("some sb coming inside");
           body:      "Your Body",
           extra:     extra
         }, function(err, charge) {
-        function(err, charge) {
           if (charge != null) {
             return resp(charge);
           }
