@@ -33,7 +33,7 @@ console.log("some sb coming inside");
       res.end(ret);
     }
     switch (req.url) {
-      case "/mypay1.js":
+      case "/myPay1.js":
         var client_ip = req.connection.remoteAddress;
         var params;
         try {
