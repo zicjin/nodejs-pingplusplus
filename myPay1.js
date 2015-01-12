@@ -1,28 +1,16 @@
 'use strict';
 var http = require('http');
 var url = require('url');
-var pingpp = require('./lib/pingpp')('sk_live_POCCqLW9uTe9efjjvTbPqXnT');
+var pingpp = require('pingpp')('sk_live_POCCqLW9uTe9efjjvTbPqXnT');
 function payf(req, res) {
+  console.log("some sb coming inside1");
   req.setEncoding('utf-8');
   var post_data = "";
   req.addListener("data", function (chunk) {
     post_data += chunk;
   });
-  console.log(req.url);
   req.addListener("end", function () {
-console.log("some sb coming inside");
-         var params;
-        try {
-          params = JSON.parse(post_data);
-        } catch (err) {
-          return resp({error:"json_parse_error"});
-        }
-        var channel = params["channel"];
-        var amount = params["amount"];
-        var subject =params["subject"];
-        var extra = {};
-        console.log(channel+"  "+amount+" "+subject);
-   var resp = function (ret, http_code) {
+  var resp = function (ret, http_code) {
       http_code = typeof http_code == "undefined" ? 200 : http_code;
       res.writeHead(http_code, {
         "Content-Type": "application/json;charset=utf-8"
@@ -34,7 +22,8 @@ console.log("some sb coming inside");
     }
     switch (req.url) {
       case "/myPay1.js":
-        var client_ip = req.connection.remoteAddress;
+ console.log("dizhishi"+req.url);
+var client_ip = req.connection.remoteAddress;
         var params;
         try {
           params = JSON.parse(post_data);
@@ -43,9 +32,11 @@ console.log("some sb coming inside");
         }
         var channel = params["channel"];
         var amount = params["amount"];
-        var subject =params["subject"];
-        var order_no=params["order_no"];
+        var order_no = params["order_no"]; // ?~U~F?~H?系?~_?~G?己?~T~_?~H~P??
+~Z~D订?~M~U?~O?
+        var subject=params["subject"];
         var extra = {};
+        console.log(channel+"  "+amount+" "+subject);
         switch (channel) {
           case pingpp.channel.ALIPAY_WAP:
             extra = {
@@ -82,4 +73,5 @@ console.log("some sb coming inside");
     }
   });
 }
-exports.payf = payf;
+exports.payf=payf;
+                                                              65,1          Bot
