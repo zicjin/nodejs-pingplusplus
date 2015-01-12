@@ -32,8 +32,7 @@ var client_ip = req.connection.remoteAddress;
         }
         var channel = params["channel"];
         var amount = params["amount"];
-        var order_no = params["order_no"]; // ?~U~F?~H?系?~_?~G?己?~T~_?~H~P??
-~Z~D订?~M~U?~O?
+        var order_no = params["order_no"];
         var subject=params["subject"];
         var extra = {};
         console.log(channel+"  "+amount+" "+subject);
