@@ -73,4 +73,3 @@ var client_ip = req.connection.remoteAddress;
   });
 }
 exports.payf=payf;
-                                                              65,1          Bot
