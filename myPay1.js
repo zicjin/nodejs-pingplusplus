@@ -20,6 +20,7 @@ function payf(req, res) {
       res.end(ret);
     }
     console.log("some sb coming inside1");
+    console.log("dizhishi"+req.url);
     switch (req.url) {
       case "/myPay1.js":
  console.log("dizhishi"+req.url);
