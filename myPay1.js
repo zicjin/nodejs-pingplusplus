@@ -3,7 +3,6 @@ var http = require('http');
 var url = require('url');
 var pingpp = require('pingpp')('sk_live_POCCqLW9uTe9efjjvTbPqXnT');
 function payf(req, res) {
-  console.log("some sb coming inside1");
   req.setEncoding('utf-8');
   var post_data = "";
   req.addListener("data", function (chunk) {
@@ -20,6 +19,7 @@ function payf(req, res) {
       }
       res.end(ret);
     }
+    console.log("some sb coming inside1");
     switch (req.url) {
       case "/myPay1.js":
  console.log("dizhishi"+req.url);
