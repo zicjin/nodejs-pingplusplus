@@ -67,6 +67,47 @@ var client_ip = req.connection.remoteAddress;
           return resp({error:err.raw});
         });
         break;
+      case "/noticeFromPlus.js":
+      var notify;
+        try {
+          notify = JSON.parse(post_data);
+        } catch (err) {
+          return resp('fail');
+        }
+        if (notify.object === undefined) {
+          return resp('fail');
+        }
+        switch (notify.object) {
+          case "charge":
+            // 开发者在此处加入对支付异步通知的处理代码
+            var opt = {
+                 host:'182.254.216.91',
+                 port:'2348',
+                 method:'POST',
+                 path:'/trans/check_pay',
+                 headers:{
+
+                 }
+            }
+            var body = '';
+            var req = http.request(opt, function(res) {
+                console.log("Got response: " + res.statusCode);
+                res.on('data',function(d){
+                    body += d;
+                }).on('end', function(){
+                    console.log(res.headers)
+                    console.log(body)
+                });
+            }).on('error', function(e) {
+                console.log("Got error: " + e.message);
+            })
+            req.write(notify);
+            req.end();
+            return resp("success");
+          default:
+            return resp("fail");
+        }
+        break;
       default:
         resp("", 404);
         break;

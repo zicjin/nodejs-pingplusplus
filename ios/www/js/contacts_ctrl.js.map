@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "contacts_ctrl.js",
+  "sourceRoot": "..",
+  "sources": [
+    "js/contacts_ctrl.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA,SAAS,CAAC,UAAV,CAAqB,cAArB,EAAqC,SAAC,MAAD,EAAS,YAAT,EAAuB,WAAvB,EAAoC,KAApC,EAA2C,aAA3C,GAAA,CAArC,CAAA,CAAA"
+}

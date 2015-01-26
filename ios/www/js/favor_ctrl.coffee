@@ -1,0 +1,1 @@
+bumblebee.controller "FavorCtrl", ($scope, $stateParams, $ionicModal, $http, $localstorage) ->

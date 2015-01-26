@@ -1,0 +1,1 @@
+bumblebee.controller "ContactsCtrl", ($scope, $stateParams, $ionicModal, $http, $localstorage) ->

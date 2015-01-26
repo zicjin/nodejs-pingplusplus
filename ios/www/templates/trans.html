@@ -1,0 +1,7 @@
+<ion-view title="订单 {{trans.id}}">
+    <ion-content class="has-header" padding="true">
+        <ol class="dialogs">
+            <li ng-repeat="dialog in trans.dialogs" ion-bind-html-unsafe="dialog.content"></li>
+        </ol>
+    </ion-content>
+</ion-view>

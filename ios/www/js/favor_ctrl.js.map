@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "favor_ctrl.js",
+  "sourceRoot": "..",
+  "sources": [
+    "js/favor_ctrl.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA,SAAS,CAAC,UAAV,CAAqB,WAArB,EAAkC,SAAC,MAAD,EAAS,YAAT,EAAuB,WAAvB,EAAoC,KAApC,EAA2C,aAA3C,GAAA,CAAlC,CAAA,CAAA"
+}

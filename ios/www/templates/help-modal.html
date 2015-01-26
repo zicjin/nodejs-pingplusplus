@@ -1,0 +1,16 @@
+<div class="modal" id="help_model">
+    <ion-header-bar>
+        <h1 class="title">你可以这样说:</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="close_help()">关闭</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+         <ion-list>
+        <ion-item ng-repeat="help in help_list">
+          {{help.name}}
+          <p>{{help.info}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+</div>

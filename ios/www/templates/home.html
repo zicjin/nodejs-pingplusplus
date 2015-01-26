@@ -1,0 +1,67 @@
+<ion-view title="神 猪">
+
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header dialog-box" has-footer="true" padding="true" start-y="120">
+        <ol class="messages">
+            <li ng-repeat="(dialog_index, dialog) in dialogs | reverse | display_dialog" ng-switch="dialog.type">
+                <div ng-switch-when="0" class="user-text" ng-bind="dialog.content"></div>
+                <div ng-switch-when="1" class="manager-text" ng-bind="dialog.content"></div>
+                <div ng-switch-when="2" class="manager-single-choice">
+                    <h5 ng-bind="dialog.content"></h5>
+                    <div class="list">
+                        <label class="item item-radio" ng-repeat="choice in dialog.choices">
+                            <input type="radio" name="radio_{{dialog_index}}" value="{{choice.value}}"
+                                ng-model="dialog.selectChoiceValue" ng-change="change_single_choices(dialog)">
+                            <div class="item-content">{{choice.displayName}}</div>
+                            <i class="radio-icon ion-checkmark"></i>
+                        </label>
+                    </div>
+                </div>
+                <div ng-switch-when="3" class="manager-multi-choice">
+                    <h5 ng-bind="dialog.content"></h5>
+                    <ul class="list">
+                        <li class="item item-checkbox" ng-repeat="choice in dialog.choices">
+                            <label class="checkbox">
+                                <input type="checkbox" value="{{choice.value}}" ng-model="choice.selected" ng-change="change_multi_choices(dialog)">
+                            </label>
+                            {{choice.displayName}}
+                        </li>
+                    </ul>
+                </div>
+                <trans-card ng-switch-when="4" class="manager-pay-check" trans-type="{{dialog.trans.typeName}}" dialog-index="{{$index}}"></trans-card>
+            </li>
+        </ol>
+    </ion-content>
+
+    <footer id="text-box" class="bar bar-footer bar-frosted">
+        <a id="guideBtn" class="button button-clear button-positive" ng-click="switch_help()">
+            <i class="icon ion-ios7-navigate"></i>
+        </a>
+        <div id="footer-form">
+            <label class="item item-input">
+                <input type="text" id="subInput" ng-model="subText" placeholder="输入……">
+            </label>
+        </div>
+        <a id="switchVoiceBtn" class="button button-clear" ng-click="switch_voice()">
+            <i class="icon ion-mic-a"></i>语音
+        </a>
+    </footer>
+
+    <div id="path-box">
+        <div class="path-item">
+            <a class="ion-help" ng-click="switch_help()"></a>
+        </div>
+        <div class="path-item">
+            <span id="voice-aperture"></span>
+            <a id="voice-btn" ng-click="start_voice()" class="ion-mic-a"></a>
+            <!-- <p id="voice-status">请说话</p> -->
+        </div>
+        <div class="path-item">
+            <a class="ion-edit" ng-click="switch_voice()"></a>
+        </div>
+    </div>
+
+</ion-view>
