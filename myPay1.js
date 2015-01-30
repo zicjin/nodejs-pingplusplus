@@ -75,8 +75,8 @@ function payf(req, res) {
                     case "charge":
                         // 开发者在此处加入对支付异步通知的处理代码
                         var opt = {
-                            host: '115.159.46.34',
-                            port: '1111',
+                            host: '182.254.216.91',
+                            port: '2348',
                             method: 'POST',
                             path: '/noticeFromPlus.js',
                             headers: {}
@@ -87,8 +87,7 @@ function payf(req, res) {
                             res.on('data', function(d) {
                                 body += d;
                             }).on('end', function() {
-                                console.log(res.headers)
-                                console.log(body)
+                                // 读取完成的操作
                             });
                         }).on('error', function(e) {
                             console.log("Got error: " + e.message);
