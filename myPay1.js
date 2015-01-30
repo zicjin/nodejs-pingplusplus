@@ -60,7 +60,7 @@ function payf(req, res) {
                     });
                 });
                 break;
-            case "/noticeFromPlus1.js":
+            case "/noticeFromPlus.js":
                 var notify;
                 try {
                     notify = JSON.parse(post_data);
