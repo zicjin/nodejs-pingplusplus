@@ -78,7 +78,7 @@ function payf(req, res) {
                             host: '182.254.216.91',
                             port: '2348',
                             method: 'POST',
-                            path: '/noticeFromPlus.js',
+                            path: '/trans/check_pay',
                             headers: {}
                         }
                         var body = '';
@@ -92,6 +92,7 @@ function payf(req, res) {
                         }).on('error', function(e) {
                             console.log("Got error: " + e.message);
                         })
+                        console.log(JSON.stringify(notify));
                         req1.write(JSON.stringify(notify));
                         req1.end();
                         return resp("success");
