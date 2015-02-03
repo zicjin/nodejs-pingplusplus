@@ -70,7 +70,7 @@ function payf(req, res) {
                 if (notify.object === undefined) {
                     return resp('fail2');
                 }
-                console.log("notice wei:"+notify)
+                console.log("notice wei:" + notify)
                 switch (notify.object) {
                     case "charge":
                         // 开发者在此处加入对支付异步通知的处理代码
@@ -79,7 +79,9 @@ function payf(req, res) {
                             port: '2348',
                             method: 'POST',
                             path: '/trans/check_pay',
-                            headers: {}
+                            headers: {
+                                "Content-Type": 'application/json'
+                            }
                         }
                         var body = '';
                         var req1 = http.request(opt, function(res) {
